@@ -1,34 +1,24 @@
 package com.thalita.roles.config;
 
-import org.springframework.context.annotation.Bean;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.servers.Server;
+import io.swagger.v3.oas.models.OpenAPI;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@OpenAPIDefinition(
+        info = @Info(
+                title = "Roles Service",
+                description = "A service to manage team roles",
+                version = "1.0.0"
+        ),
+        servers = @Server(url = "http://localhost:8080")
+)
 
 @Configuration
-@EnableSwagger2
 public class SwaggerConfig {
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.thalita.roles.controller"))
-                .paths(PathSelectors.any())
-                .build();
-    }
 
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("Roles Service")
-                .description("A service to manage team roles")
-                .version("1.0.0")
-                .license("Apache License Version 2.0")
-                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
-                        .build();
+    public OpenAPI springShopOpenAPI() {
+        return new OpenAPI();
     }
 }
