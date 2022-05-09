@@ -1,0 +1,3 @@
+INSERT INTO ROLE VALUES (1, 'Developer');
+INSERT INTO ROLE VALUES (2, 'Product Owner');
+INSERT INTO ROLE VALUES (3, 'Tester');
