@@ -1,6 +1,5 @@
-package com.thalita.roles.unit;
+package com.thalita.roles.service;
 
-import com.thalita.roles.service.CheckMembershipService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,31 +17,46 @@ public class CheckMembershipServiceTest {
 
 
     @Test
-    @DisplayName("should return true when user is a team leader")
+    @DisplayName("Should return true when user is a team leader")
     public void userIsTeamLead() {
         Boolean result = checkMembershipService.isMember(teamId, leadId);
         assert result == true;
     }
 
     @Test
-    @DisplayName("should return true when user is a team member")
+    @DisplayName("Should return true when user is a team member")
     public void userIsTeamMember() {
         Boolean result = checkMembershipService.isMember(teamId, userId);
         assert result == true;
     }
 
     @Test
-    @DisplayName("should return false when user is not a team member")
+    @DisplayName("Should return false when user is not a team member")
     public void userIsNotTeamMember() {
         Boolean result = checkMembershipService.isMember(teamId, "not a user");
         assert result == false;
     }
 
     @Test
-    @DisplayName("should return false when team does not exist")
+    @DisplayName("Should return false when team does not exist")
     public void teamDoesNotExist() {
         Boolean result = checkMembershipService.isMember("not a team", userId);
         assert result == false;
     }
 
+    @Test
+    @DisplayName("Should return false when team is empty")
+    public void teamIsEmpty() {
+        Boolean result = checkMembershipService.isMember("", userId);
+        assert result == false;
+    }
+
+    @Test
+    @DisplayName("Should return false when user is empty")
+    public void userIsEmpty() {
+        Boolean result = checkMembershipService.isMember(teamId, "");
+        assert result == false;
+    }
+
 }
+
