@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.thalita</groupId>
-	<artifactId>roleModels</artifactId>
+	<artifactId>roleService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>roleModels</name>
 	<description>Roles service</description>
@@ -73,7 +73,12 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -85,6 +90,9 @@
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<version>2.19.1</version>
+						<configuration>
+							<skipTests>true</skipTests>
+						</configuration>
 					</plugin>
 		</plugins>
 	</build>

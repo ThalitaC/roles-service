@@ -42,7 +42,10 @@ class MembershipServiceTest {
 
     private final String invalidUser = "invalid";
 
-    public MembershipModel newMembershipModel() {
+    public MembershipServiceTest() {
+    }
+
+    private MembershipModel newMembershipModel() {
         MembershipId membershipId = new MembershipId();
         membershipId.setUserId(validUser);
         membershipId.setTeamId(validTeam);

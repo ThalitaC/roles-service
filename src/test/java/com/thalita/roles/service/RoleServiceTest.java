@@ -27,6 +27,9 @@ class RoleServiceTest {
     @Mock
     private RoleRepository roleRepository;
 
+    public RoleServiceTest(){
+    }
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
